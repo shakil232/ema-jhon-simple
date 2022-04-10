@@ -1,10 +1,15 @@
 import React from 'react';
-import './Card.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faRightLong } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from 'react-router-dom';
 
 const Card = (props) => {
     const card = props.card;
+    const navigate = useNavigate();
+    
+    const reviewClick = () =>{
+        navigate("/review")
+    }
 
     const total = card.reduce((total, product) => total + product.price, 0);
 
@@ -28,7 +33,7 @@ const Card = (props) => {
     }
     return (
         <section className="container mt-2 ms-3">
-            <h5 className="text-info text-center">Order Summary</h5>
+            <h5 className="text-info text-center border-bottom border-1">Order Summary</h5>
 
             <div className="text-start text-secondary">
                 <small>Items Ordered- {card.length}</small><br />
@@ -42,9 +47,11 @@ const Card = (props) => {
                 <p className="mt-2">Total Price- $ {grandTotal}</p>
             </div>
 
-            <button className="btn btn-warning rounded-3">
+            <button onClick={reviewClick} className="btn btn-warning rounded-3">
                 <FontAwesomeIcon className="me-2" icon={faRightLong} />
-                Order Review</button>
+                Order Review
+            </button>
+            
         </section>
     );
 };

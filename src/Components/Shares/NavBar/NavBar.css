@@ -1,0 +1,22 @@
+.nav-list{
+    line-height: 30px;
+    text-align: center !important;
+}
+.nav-menu{
+    font-size: 14px;
+    font-weight: 0px;
+    color: whitesmoke ;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 2s;
+}
+.nav-menu:hover{
+    color:orange!important;
+    text-decoration: overline;   
+}
+
+.navbar-toggler
+{
+  background-color: red! important;
+  font-size: 10px !important;
+}
