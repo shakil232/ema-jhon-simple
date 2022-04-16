@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import {  Navigate, useLocation, Outlet } from 'react-router-dom';
+import { userContext } from '../../App';
 
 const PrivateRoute = () => {
+    const [user, setUser] = useContext(userContext);
+    const location = useLocation();
+
     return (
-        <div>
-            <h3>comming sooooonnnneee</h3>
-        </div>
+        user.name?
+            <Outlet />
+            :
+            <Navigate
+                to="/login"
+                state={{ from: location }}
+                replace
+            />
+
     );
 };
 

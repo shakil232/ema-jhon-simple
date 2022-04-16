@@ -5,6 +5,7 @@ import Card from '../Card/Card';
 import Header from '../Header/Header';
 import NavBar from '../Shares/NavBar/NavBar'
 import { reviewContext } from '../../App';
+import { Spinner } from 'react-bootstrap';
 
 
 const Shop = () => {
@@ -27,6 +28,12 @@ const Shop = () => {
             <Header/>
             <NavBar/>
             <main className="container d-flex ">
+                <div className="m-auto mt-2">
+                    {
+                        products.length === 0 &&
+                        <Spinner animation="grow" className="text-center fs-3"  variant="info" />
+                    }
+                </div>
                 <div className="w-75 me-2  ">
                     {
                        products.map(product => <ProductDisplay
